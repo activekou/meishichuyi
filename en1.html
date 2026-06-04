@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=2.0, minimum-scale=0.5">
+  <title>水果英语单词海报 · 儿童启蒙教育</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f9e7b3 0%, #fceeb8 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Fredoka', 'Segoe UI', 'Comic Sans MS', '幼圆', 'YouYuan', 'Chalkboard SE', sans-serif;
+      padding: 1.5rem;
+      margin: 0;
+    }
+
+    /* 海报主卡片 —— 像一张可爱的学习海报 */
+    .poster {
+      max-width: 900px;
+      width: 100%;
+      background: #fffef7;
+      background-image: radial-gradient(circle at 20% 30%, #fff9e6 5%, #fffef2 80%);
+      border-radius: 4.5rem 4.5rem 4rem 4rem;
+      box-shadow: 0 25px 40px rgba(180, 120, 30, 0.25), 0 10px 15px rgba(0,0,0,0.08), inset 0 2px 10px rgba(255,255,200,0.8);
+      padding: 2.8rem 2.2rem 2.5rem;
+      border: 3px solid #ffcf9a;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    /* 装饰小元素：让海报更有童趣 */
+    .poster::before {
+      content: "🍎🍌🍇";
+      position: absolute;
+      top: -15px;
+      left: 30px;
+      font-size: 2.5rem;
+      opacity: 0.6;
+      transform: rotate(-5deg);
+      filter: drop-shadow(0 8px 8px rgba(0,0,0,0.1));
+      letter-spacing: 8px;
+    }
+
+    .poster::after {
+      content: "🍊🍓🍑";
+      position: absolute;
+      bottom: -10px;
+      right: 30px;
+      font-size: 2.8rem;
+      opacity: 0.5;
+      transform: rotate(4deg);
+      filter: drop-shadow(0 6px 6px rgba(0,0,0,0.1));
+      letter-spacing: 8px;
+    }
+
+    /* 标题区域 */
+    .header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .header h1 {
+      font-size: 3.8rem;
+      font-weight: 700;
+      color: #e07b39;
+      text-shadow: 3px 3px 0 #ffe3b0, 5px 5px 0 rgba(255, 180, 60, 0.4);
+      letter-spacing: 2px;
+      line-height: 1.2;
+      margin-bottom: 0.3rem;
+      word-break: break-word;
+    }
+
+    .header .subtitle {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #b45f2a;
+      background: rgba(255, 251, 220, 0.8);
+      display: inline-block;
+      padding: 0.4rem 2.2rem;
+      border-radius: 3rem;
+      backdrop-filter: blur(3px);
+      box-shadow: 0 6px 12px rgba(255,140,0,0.2);
+      letter-spacing: 1px;
+      border: 1px dashed #f7a54b;
+    }
+
+    .subtitle i {
+      font-style: normal;
+      margin: 0 4px;
+    }
+
+    /* 水果网格：响应式网格，适合儿童视觉 */
+    .fruit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0 2.2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* 每一个水果卡片 */
+    .fruit-card {
+      background: #ffffff;
+      border-radius: 2.5rem 2.5rem 2rem 2rem;
+      padding: 1.3rem 0.6rem 0.9rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 18px rgba(160, 100, 20, 0.15), 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.25s;
+      border: 2px solid #fde2b1;
+      background: linear-gradient(180deg, #fffef5 0%, #fff7e6 100%);
+      cursor: default;
+      position: relative;
+    }
+
+    .fruit-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 22px 25px rgba(210, 130, 20, 0.25), 0 6px 12px rgba(0,0,0,0.1);
+      border-color: #f9b953;
+      background: #fffdf4;
+    }
+
+    /* 水果表情符号/大图标 */
+    .fruit-emoji {
+      font-size: 4.5rem;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 8px 10px rgba(0,0,0,0.15));
+      transition: transform 0.2s;
+      display: block;
+    }
+
+    .fruit-card:hover .fruit-emoji {
+      transform: scale(1.08) rotate(-2deg);
+    }
+
+    /* 英文单词 */
+    .english-word {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #4a6b3a;
+      background: #f4f9e6;
+      padding: 0.2rem 1rem;
+      border-radius: 2rem;
+      margin: 0.3rem 0 0.2rem;
+      letter-spacing: 0.5px;
+      text-transform: capitalize;
+      box-shadow: inset 0 1px 5px rgba(0,0,0,0.05);
+      border: 1px solid #dcedb9;
+      width: fit-content;
+      font-family: 'Fredoka', 'Comic Sans MS', 'Segoe UI', sans-serif;
+    }
+
+    /* 中文翻译 */
+    .chinese-word {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #b45f2a;
+      background: rgba(255, 235, 180, 0.5);
+      padding: 0.15rem 1.2rem;
+      border-radius: 1.2rem;
+      margin-top: 0.2rem;
+      letter-spacing: 1px;
+      border: 1px solid #fccb7a;
+    }
+
+    /* 底部小提示或互动区域 */
+    .footer-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-top: 1.8rem;
+      background: #fffaec;
+      border-radius: 3rem;
+      padding: 0.8rem 2rem;
+      border: 2px dotted #f7b05e;
+      color: #9b5a2a;
+      font-size: 1.1rem;
+      font-weight: 500;
+      box-shadow: 0 6px 12px rgba(250, 180, 70, 0.2);
+    }
+
+    .footer-note span {
+      background: #fce4b4;
+      border-radius: 2rem;
+      padding: 0.2rem 1.2rem;
+      font-size: 1.2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .star-icon {
+      font-size: 1.5rem;
+      color: #f7b731;
+      filter: drop-shadow(0 0 4px gold);
+    }
+
+    /* 针对小屏幕优化 */
+    @media (max-width: 550px) {
+      .poster {
+        padding: 1.8rem 1rem 1.8rem;
+        border-radius: 3rem;
+      }
+      .header h1 {
+        font-size: 2.8rem;
+      }
+      .fruit-emoji {
+        font-size: 3.8rem;
+      }
+      .english-word {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <!-- 头部区域：主题突出 -->
+    <div class="header">
+      <h1>🍎Fruit Fun🍌</h1>
+      <div class="subtitle">
+        <i>🌈</i> 常见水果 · 单词海报 <i>🌈</i>
+      </div>
+    </div>
+
+    <!-- 水果单词网格：共12种常见水果，适合儿童认知 -->
+    <div class="fruit-grid">
+      
+      <!-- 苹果 Apple -->
+      <div class="fruit-card">
+        <span class="fruit-emoji" aria-label="苹果">🍎</span>
+        <span class="english-word">Apple</span>
+        <span class="chinese-word">苹果</span>
+      </div>
+      
+      <!-- 香蕉 Banana -->
+      <div class="fruit-card">
+        <span class="fruit-emoji" aria-label="香蕉">🍌</span>
+        <span class="english-word">Banana</span>
+        <span class="chinese-word">香蕉</span>
+      </div>
+      
+      <!-- 橙子 Orange -->
+      <div class="fruit-card">
+        <span class="fruit-emoji" aria-label="橙子">🍊</span>
+        <span class="english-word">Orange</span>
+        <span class="chinese-word">橙子</span>
+      </div>
+      
+      <!-- 葡萄 Grapes -->
+      <div class="fruit-card">
+        <span class="fruit-emoji" aria-label="葡萄">🍇</span>
+        <span class="english-word">Grapes</span>
+        <span class="chinese-word">葡萄</span>
+      </div>
+      
+      <!-- 草莓 Strawberry -->
+      <div class="fruit-card">
+        <span class="fruit-emoji" aria-label="草莓">🍓</span>
+        <span class="english-word">Strawberry</span>
+        <span class="chinese-word">草莓</span>
+      </div>
+      
+      <!-- 桃子 Peach -->
+      <div class="fruit-card">
+        <span class="fruit-emoji" aria-label="桃子">🍑</span>
+        <span class="english-word">Peach</span>
+        <span class="chinese-word">桃子</span>
+      </div>
+      
+      <!-- 西瓜 Watermelon -->
+      <div class="fruit-card">
+        <span class="fruit-emoji" aria-label="西瓜">🍉</span>
+        <span class="english-word">Watermelon</span>
+        <span class="chinese-word">西瓜</span>
+      </div>
+      
+      <!-- 樱桃 Cherries -->
+      <div class="fruit-card">
+        <span class="fruit-emoji" aria-label="樱桃">🍒</span>
+        <span class="english-word">Cherries</span>
+        <span class="chinese-word">樱桃</span>
+      </div>
+      
+      <!-- 梨 Pear -->
+      <div class="fruit-card">
+        <span class="fruit-emoji" aria-label="梨">🍐</span>
+        <span class="english-word">Pear</span>
+        <span class="chinese-word">梨</span>
+      </div>
+      
+      <!-- 猕猴桃 Kiwi -->
+      <div class="fruit-card">
+        <span class="fruit-emoji" aria-label="猕猴桃">🥝</span>
+        <span class="english-word">Kiwi</span>
+        <span class="chinese-word">猕猴桃</span>
+      </div>
+      
+      <!-- 芒果 Mango -->
+      <div class="fruit-card">
+        <span class="fruit-emoji" aria-label="芒果">🥭</span>
+        <span class="english-word">Mango</span>
+        <span class="chinese-word">芒果</span>
+      </div>
+      
+      <!-- 菠萝 Pineapple -->
+      <div class="fruit-card">
+        <span class="fruit-emoji" aria-label="菠萝">🍍</span>
+        <span class="english-word">Pineapple</span>
+        <span class="chinese-word">菠萝</span>
+      </div>
+    </div>
+
+    <!-- 底部鼓励语 / 学习互动提示 -->
+    <div class="footer-note">
+      <span class="star-icon">⭐</span>
+      <span>Can you say them? 🗣️</span>
+      <span>点一点 · 读一读</span>
+      <span class="star-icon">⭐</span>
+    </div>
+
+    <!-- 隐晦的装饰：可爱小图案点缀（通过css已经有很多水果emoji） 
+         同时确保所有文字都可选中，适合打印和教育使用 -->
+  </div>
+</body>
+</html>
